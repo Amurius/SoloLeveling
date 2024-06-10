@@ -12,22 +12,40 @@
   :root {
     --foreground-rgb: 255, 255, 255;
     --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+    --background-end-rgb: 24, 8, 40;
   }
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: linear-gradient(to bottom,
+      transparent 75%,
+      rgb(var(--background-end-rgb)) 100%) rgb(var(--background-start-rgb));
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+p,label,select,textarea,button,li, header, h3, h4, h5, h6{
+  font-family: var(--font-family-gothic);
+}
+
+h1{
+  font-family: var(--font-family-Titres);
+}
+
+a{
+  font-family: var(--font-family-gothic);
+}
+
+nav>header{
+  max-width: none !important;
+}
+
+h4{
+  font-size: 1.5rem/* 24px */;
+  line-height: 2rem/* 32px */;
 }
