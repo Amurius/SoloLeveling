@@ -3,7 +3,7 @@ import { Button, Input } from '@nextui-org/react'
 import { EyeFilledIcon } from "@/components/SignIn/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "@/components/SignIn/EyeSlashFilledIcon";
 import React from 'react';
-import { postLogin } from '@/app/action';
+import { postLogin } from '@/app/actions/action';
 import { useMutation } from 'react-query';
 
 export default function FormLogin() {

@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { EyeFilledIcon } from "@/components/SignIn/EyeFilledIcon";
 import { EyeSlashFilledIcon } from "@/components/SignIn/EyeSlashFilledIcon";
 import { Button, ButtonGroup } from "@nextui-org/react";
-import { postSignIn } from '@/app/action';
+import { postSignIn } from '@/app/actions/action';
 import { useMutation } from 'react-query';
 
 export default function FormSign() {
@@ -45,7 +45,7 @@ export default function FormSign() {
     return psw === pswConfirm ? false : true;
   },[pswConfirm,psw]);
   
-  const { data, isLoading, mutate: server_getUser } = useMutation({
+  const { data, isLoading, mutate: server_postSignIn } = useMutation({
     mutationFn: postSignIn,
     onSuccess: (res) => {
       if (res?.error == 'password'){
@@ -145,7 +145,7 @@ export default function FormSign() {
           </div>
         </div>
         <div className=' w-full flex justify-center my-20'>
-          <Button onClick={() => server_getUser({ "formulaire": formulaire })} radius='full' size='lg' className=' bg-gradient-to-tl from-purple-950 to-purple-700 shadow-lg self-center text-3xl text-black'>
+          <Button onClick={() => server_postSignIn({ "formulaire": formulaire })} radius='full' size='lg' className=' bg-gradient-to-tl from-purple-950 to-purple-700 shadow-lg self-center text-3xl text-black'>
             Sign Up
           </Button>
         </div>

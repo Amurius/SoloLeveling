@@ -131,7 +131,7 @@ export default function TableMonstresAdmin({ columns, data }: {
         return (
           <div className="relative flex items-center gap-2">
             <MonstreInfoModal data={data[ligne]} />
-            <MonstreEditModal data={data[ligne]} />
+            <MonstreEditModal sendMonstres={data[ligne]} />
             <Button color="danger" variant="flat"><DeleteIcon/></Button>
           </div>
         );
@@ -182,8 +182,8 @@ export default function TableMonstresAdmin({ columns, data }: {
             ) : null
           }
           classNames={{
-            base: "max-h-[90vh] ",
-            table: "overflow-scroll"
+            base: "max-h-[85vh] ",
+            table: "overflow-scroll "
           }}>
           <TableHeader columns={columns}>
             {(column: any) => (

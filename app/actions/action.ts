@@ -2,7 +2,7 @@
 import excuteQuery from '@/database/db'
 import { log } from 'console';
 import { cookies } from 'next/headers';
-import monstres from './accueil/monstres/page';
+import monstres from '../accueil/monstres/page';
 const pswHash = require('password-hash');
 const jwt = require('jsonwebtoken');
 
@@ -61,15 +61,6 @@ export const getCookies = async () => {
 
 export const Logout = async () => {
   cookies().delete('you');
-}
-
-export const getMonstres = async () => {
-  const result = await excuteQuery({
-    query: 'SELECT * FROM monstre inner join statistiques on mon_sta_id = sta_id order by mon_id',
-    values: null,
-  }); 
-  var monstres = JSON.stringify(result)
-  return monstres
 }
 
 export const getUsers = async () => { 

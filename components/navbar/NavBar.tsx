@@ -2,7 +2,7 @@
 import { Navbar, NavbarBrand, NavbarContent, NavbarItem, Link, Avatar, Image } from '@nextui-org/react';
 import { Dropdown, DropdownTrigger, DropdownMenu, DropdownItem } from '@nextui-org/react';
 import { useMutation, useQuery } from 'react-query';
-import { Logout, getCookies } from '@/app/action';
+import { Logout, getCookies } from '@/app/actions/action';
 import { useEffect, useState } from 'react';
 import { error } from 'console';
 import { randomInt } from 'crypto';
@@ -105,17 +105,17 @@ export default function NavBar() {
                     <p className="text-purple-400 lg:text-3xl md:text-2xl text-xl">Signed in as {user.prenom}</p>
                   </DropdownItem>
                   <DropdownItem key="personnages">
-                    <Link className=' lg:text-2xl md:text-xl text-lg text-purple-100' href='/accueil' onPress={() => Logout()}>
+                    <Link className=' lg:text-2xl md:text-xl text-lg text-purple-100 w-full' href='/accueil' >
                       Mon Compte
                     </Link>
                   </DropdownItem>
                   <DropdownItem key="team_settings">
-                    <Link className=' lg:text-2xl md:text-xl text-lg text-purple-100' href='/accueil' onPress={() => Logout()}>
+                    <Link className=' lg:text-2xl md:text-xl text-lg text-purple-100 w-full' href='/accueil/user' >
                       Mes Personnages
                     </Link>
                   </DropdownItem>
                   <DropdownItem key="logout" color="danger">
-                    <Link className='lg:text-2xl md:text-xl text-lg' href='/accueil' color='danger' onPress={() => Logout()}>
+                    <Link className='lg:text-2xl md:text-xl text-lg w-full' href='/accueil' color='danger' onPress={() => Logout()}>
                       Logout
                     </Link>
                   </DropdownItem>

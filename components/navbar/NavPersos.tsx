@@ -1,27 +1,13 @@
 "use client"
-import { useEffect, useState } from "react";
-import { useMutation } from "react-query";
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger, Link } from "@nextui-org/react";
-import NavBar from "@/components/navbar/NavBar";
-import { getCookies } from "@/app/actions/action";
 
-export default function AdminNav() {
-  const [user, setUser] = useState<any>(null);
-  useEffect(() => {
-    server_getCookies()
-  }, [])
+export default function NavPersos({user}:{user:any}) {
 
-  const { mutate: server_getCookies } = useMutation({
-    mutationFn: getCookies,
-    onSuccess: (res) => {
-      setUser(res);
-    },
-  })
   const DropDownContent = ({ color, variant }: { color: any, variant: any }) => (
     <Dropdown showArrow>
       <DropdownTrigger>
         <Button color={color} variant={variant} className=' lg:text-5xl md:text-3xl text-xl text-purple-500 h-max p-2 '>
-          Menu de gestion
+          Gestion des personnages
         </Button>
       </DropdownTrigger>
       <DropdownMenu color={color} variant={variant}>
@@ -39,17 +25,10 @@ export default function AdminNav() {
             </Link>
           </DropdownItem>
         </DropdownSection>
-        <DropdownSection aria-label="Classes" showDivider>
+        <DropdownSection aria-label="Classes" >
           <DropdownItem textValue="addClasses">
             <Link href="/administration/classes" className=' lg:text-2xl md:text-xl text-lg text-purple-200 w-full'>
               Ajouter et modifier des classes
-            </Link>
-          </DropdownItem>
-        </DropdownSection>
-        <DropdownSection aria-label="Compétences" >
-          <DropdownItem textValue="addCompetences">
-            <Link href="/administration/competences" className=' lg:text-2xl md:text-xl text-lg text-purple-200 w-full'>
-              Ajouter et modifier des competences
             </Link>
           </DropdownItem>
         </DropdownSection>

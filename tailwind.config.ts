@@ -29,6 +29,13 @@ const config: Config = {
         '2/5': '40%',
         '3/5': '60%',
         '4/5': '80%',
+      },
+      dropShadow: {
+        'glow-white' : '1px 0 20px rgba(255, 255, 255,1)',
+        'glow-red' : '1px 0 20px rgba(255, 0, 0,1)',
+        'glow-blue' : '1px 0 20px rgba(0, 0, 255,1)',
+        'glow-green' : '1px 0 20px rgba(0, 255, 0,1)',
+        'glow-purple' : '1px 0 20px rgba(255, 255, 255,1)',
       }
     },
   },

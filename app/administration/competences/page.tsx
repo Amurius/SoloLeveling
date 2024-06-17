@@ -1,14 +1,12 @@
 "use client"
 import { getCookies } from '@/app/actions/action' ;
-import {getMonstres } from '@/app/actions/monstres';
 import { useMutation } from "react-query";
 import { useEffect, useState } from "react";
 import NavBar from "@/components/navbar/NavBar";
 import AdminNav from '@/components/Admin/AdminNav';
-import TableMonstresAdmin from '@/components/Table/TableMonstresAdmin';
 
-export default function monstres() {
-  const [monstres, setMonstres] = useState<any>();
+export default function Competences() {
+  const [competences, setCompetences] = useState<any>();
   const [user, setUser] = useState<any>(null);
   const columns = [
     { name: "NOM", uid: "mon_nom" },
@@ -21,15 +19,14 @@ export default function monstres() {
     { name: "ACTIONS", uid: "mon_id" },
   ];
   useEffect(() => {
-    server_getMonstres()
     server_getCookies()
   }, [])
-  const { mutate: server_getMonstres } = useMutation({
-    mutationFn: getMonstres,
-    onSuccess: (res) => {
-      setMonstres(JSON.parse(res))
-    },
-  })
+  // const { mutate: server_getCompetences } = useMutation({
+  //   mutationFn: ,
+  //   onSuccess: (res) => {
+  //     setCompetences(JSON.parse(res))
+  //   },
+  // })
 
   const { mutate: server_getCookies } = useMutation({
     mutationFn: getCookies,
@@ -38,13 +35,13 @@ export default function monstres() {
     },
   })
 
-  if (monstres && user && user.admin === 1) {
+  if (competences && user && user.admin === 1) {
     return (
       <>
         <NavBar />
         <div className=" w-full flex py-6">
           <AdminNav />
-          <TableMonstresAdmin columns={columns} data={monstres} />
+          {/* <TableMonstresAdmin columns={columns} data={competences} /> */}
         </div>
       </>
     );

@@ -1,5 +1,5 @@
 "use client"
-import { getMonstres } from '@/app/action';
+import { getMonstres } from '@/app/actions/monstres';
 import { useMutation } from "react-query";
 import { useEffect, useState } from "react";
 import NavBar from "@/components/navbar/NavBar";

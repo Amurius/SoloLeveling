@@ -6,6 +6,9 @@ import { EyeIcon } from "@/components/Table/EyeIcon"
 import { EditIcon } from "@/components/Table/EditIcon"
 import { DeleteIcon } from "@/components/Table/DeleteIcon"
 import { useAsyncList } from "@react-stately/data";
+import PersosModal from "./Modals/PersosModal";
+import { useMutation } from "react-query";
+import { getPersosUser } from "@/app/actions/personnages";
 
 const statusColorMap: Record<string, ChipProps["color"]> = {
   active: "success",
@@ -16,6 +19,7 @@ const statusColorMap: Record<string, ChipProps["color"]> = {
 export default function NiceTable({ columns, data }: {
   columns: any, data: any
 }) {
+
   type User = typeof data[0];
   const renderCell = React.useCallback((user: User, columnKey: React.Key) => {
     const cellValue = user[columnKey as keyof User];
@@ -43,14 +47,17 @@ export default function NiceTable({ columns, data }: {
             <p className="lg:text-xl text-sm capitalize ">{cellValue}</p>
           </div>
         );
+      case "us_id":
+        return (
+          <Tooltip content="Details">
+            <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
+              <PersosModal data={cellValue} />
+            </span>
+          </Tooltip>
+        );
       case "actions":
         return (
           <div className="relative flex items-center gap-2">
-            <Tooltip content="Details">
-              <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
-                <EyeIcon />
-              </span>
-            </Tooltip>
             <Tooltip content="Edit user">
               <span className="text-lg text-default-400 cursor-pointer active:opacity-50">
                 <EditIcon />
@@ -82,7 +89,7 @@ export default function NiceTable({ columns, data }: {
             table: "overflow-scroll"
           }}>
           <TableHeader columns={columns}>
-            {(column:any) => (
+            {(column: any) => (
               <TableColumn key={column.uid} align={column.uid === "actions" ? "center" : "start"}>
                 {column.name}
               </TableColumn>

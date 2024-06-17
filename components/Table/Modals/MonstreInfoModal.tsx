@@ -37,7 +37,7 @@ export default function MonstreInfoModal({ data }: { data: any }) {
   }
   return (
     <>
-      <Tooltip content="Details">
+      <Tooltip content="Details" placement="right" delay={1000}>
         <Button onPress={onOpen} variant="light"><EyeIcon /></Button>
       </Tooltip>
       <Modal isOpen={isOpen} backdrop="blur" size="4xl" onOpenChange={onOpenChange}>
@@ -85,6 +85,9 @@ export default function MonstreInfoModal({ data }: { data: any }) {
                         <div className=" flex w-1/2 gap-x-2 items-center">
                           <img className=" w-1/6" src="/imagesMonstres/chance.png"/>
                           <h4 className=" w-full">{data.sta_chance} % de chance</h4>
+                        </div>
+                        <div>
+                          <h4>Loot :  / chance de drop : </h4>
                         </div>
                       </div>
                     </div>

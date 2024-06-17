@@ -1,6 +1,6 @@
 "use client"
 import { useEffect, useState } from "react";
-import { getCookies } from "../action";
+import { getCookies } from "../actions/action";
 import { useMutation } from "react-query";
 import AdminNav from "@/components/Admin/AdminNav";
 import NavBar from "@/components/navbar/NavBar";
