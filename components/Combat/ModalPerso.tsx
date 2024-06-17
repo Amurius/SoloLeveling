@@ -124,10 +124,9 @@ export default function ModalPerso({ data }: { data: any }) {
                       </div>
                       <div className=" flex w-max gap-x-2 items-center">
                         <img className=" w-8" src="/imagesMonstres/chance.png" />
-                        <h4 className=" w-full">{data.sta_chance + " % de chance +"}</h4>
-                        {formulaire ? <h4>{formulaire.chance}</h4> : <></>}
+                        {formulaire["chance"]+data.sta_chance <100 ? <><h4 className=" w-full">{data.sta_chance + " % de chance +"}</h4><h4>{formulaire.chance}</h4></> : <h4 className=" w-full">{data.sta_chance + "+ " +formulaire.chance+ " % de chance : MAXED"}</h4>}
                         <Button size="sm" variant="flat" className=" text-3xl" name="chance" value={1} onClick={(e) => removePoint(e)}>-</Button>
-                        <Button size="sm" variant="flat" className=" text-3xl" name="chance" value={1} onClick={(e) => addPoint(e)}>+</Button>
+                        {formulaire["chance"]+data.sta_chance <100 ? <Button size="sm" variant="flat" className=" text-3xl" name="chance" value={1} onClick={(e) => addPoint(e)}>+</Button> : <></>}
                       </div>
                       <div>
                         <h4>Compétence :</h4>
@@ -148,7 +147,7 @@ export default function ModalPerso({ data }: { data: any }) {
                 </Button>
                 <Button onPress={() => {
                   if (confirm("Voulez-vous vraiement mettre à jour ces données ?")) {
-                    server_updatePointsPerso({ "persoID": data.per_id, "formulaire": formulaire, "pointsAttr": maxPoints - points })
+                    server_updatePointsPerso({ "persoID": data.per_id, "formulaire": formulaire, "pointsAttr": data.per_points_attribues + (maxPoints - points) })
                   } else {
                   }
                 }}>

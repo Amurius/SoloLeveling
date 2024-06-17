@@ -35,7 +35,7 @@ export default function CombatPerso() {
                     <Button color="danger" variant="flat" className=" text-4xl py-8 absolute left-0 top-0"><Link href='/accueil'>EXIT</Link></Button>
                 </div>
                 <div className=" h-full w-full flex items-center justify-center">
-                <div className=" flex ">
+                <div className=" flex gap-x-6">
                     <Portails perso={perso[0]} />
                 </div>
                 </div>

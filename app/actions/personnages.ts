@@ -44,6 +44,7 @@ export const get1Perso = async ({ persoID }: { persoID: string | null }) => {
       query: "SELECT personnage.*, cla_nom, cla_niveau, statistiques.*, competences.com_nom, competences.com_dmg, competences.com_cout from informations inner join personnage on info_per_id = per_id inner join classe on info_cla_id = cla_id inner join statistiques on per_sta_id = sta_id INNER JOIN competences on info_com_id = com_id where per_id = ?;",
       values: [id]
     })
+    getPerso[0].per_id = crypt.encrypt(getPerso[0].per_id)
     return JSON.stringify(getPerso)
   } else {
     return JSON.stringify({error: true})
@@ -63,20 +64,22 @@ export const deletePerso = async ({ persoID }: { persoID: string | null }) => {
   })
 }
 
-export const updatePointsPerso = async ({ persoID, formulaire, pointsAttr }: { persoID: string | null, formulaire:any, pointsAttr:number }) => {
+export const updatePointsPerso = async ({ persoID, formulaire, pointsAttr }: { persoID: string, formulaire:any, pointsAttr:number }) => {
+  var id = crypt.decrypt(persoID)
   const updatePerso = await excuteQuery({
     query: "UPDATE personnage SET per_points_attribues = ? where per_id = ?",
-    values: [pointsAttr,persoID]
+    values: [pointsAttr,id]
   })
   const selectStat = await excuteQuery({
     query: "SELECT per_sta_id,statistiques.* FROM personnage inner join statistiques on per_sta_id = sta_id where per_id = ?",
-    values: [persoID]
+    values: [id]
   })
   var nvHp = selectStat[0].sta_hp + formulaire.hp;
   var nvMana = selectStat[0].sta_mana + formulaire.hp
   var nvDmg = selectStat[0].sta_atk_dmg +formulaire.dmg
   var nvAtkSpeed = selectStat[0].sta_atk_speed + formulaire.atkspeed
   var nvChance = selectStat[0].sta_chance + formulaire.chance;  
+  
   const updateStat = await excuteQuery({
     query: "UPDATE statistiques SET sta_hp = ?, sta_mana = ?, sta_atk_dmg = ?, sta_atk_speed = ?, sta_chance = ? WHERE sta_id = ?",
     values: [nvHp,nvMana,nvDmg,nvAtkSpeed,nvChance,selectStat[0].per_sta_id]
