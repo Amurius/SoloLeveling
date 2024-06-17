@@ -5,9 +5,9 @@ import { useMutation } from "react-query";
 import { getPersosUser } from "../actions/personnages";
 import { useSearchParams } from "next/navigation";
 import { Button, Dropdown, DropdownItem, DropdownMenu, DropdownSection, DropdownTrigger, Link } from "@nextui-org/react";
+import Cryptr from 'cryptr';
 
 export default function Combat() {
-
   const [user, setUser] = useState<any>(null);
   const [personnages, setPersonnages] = useState<any>(null);
   useEffect(() => {
@@ -26,6 +26,7 @@ export default function Combat() {
       setPersonnages(JSON.parse(res))
     },
   })
+  
   type Personnage = typeof personnages[0]
   if (user != null && personnages != null) {
     return (
@@ -43,7 +44,7 @@ export default function Combat() {
             <DropdownMenu aria-label="Static Actions">
               {
                 personnages.map((personnage:Personnage) => (
-                  <DropdownItem key={personnage.per_id}><Link  href={"/combat/personnage?idPerso=" + personnage.per_id} className=' lg:text-2xl md:text-xl text-lg text-purple-100 w-full'>{personnage.per_nom + " /  Classe: " + personnage.cla_nom}</Link></DropdownItem>
+                  <DropdownItem key={personnage.per_id}><Link  href={"/combat/personnage?perso=" + personnage.per_id} className=' lg:text-2xl md:text-xl text-lg text-purple-100 w-full'>{personnage.per_nom + " /  Classe: " + personnage.cla_nom}</Link></DropdownItem>
                 ))
               }
             </DropdownMenu>

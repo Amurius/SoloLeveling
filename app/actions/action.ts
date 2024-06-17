@@ -31,8 +31,8 @@ export const postLogin = async ({ formulaire }: { formulaire: any }) => {
   });
   if (pswHash.verify(formulaire.password, user[0].us_password)) {
     console.log("bon mdp");
-    var token = jwt.sign({'id' : user[0].us_id, 'email': user[0].us_email, 'prenom' : user[0].us_prenom, 'pp': user[0].us_pp, 'admin': user[0].us_admin}, process.env.JWT_KEY, {expiresIn: '1h'} )
-    cookies().set("you", token, {httpOnly: true, path: '/', secure: false, maxAge: 60*60*1000});
+    var token = jwt.sign({'id' : user[0].us_id, 'email': user[0].us_email, 'prenom' : user[0].us_prenom, 'pp': user[0].us_pp, 'admin': user[0].us_admin}, process.env.JWT_KEY, {expiresIn: '8h'} )
+    cookies().set("you", token, {httpOnly: true, path: '/', secure: false, maxAge: 8*60*60*1000});
     return {
       success : true
     }

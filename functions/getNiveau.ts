@@ -1,5 +1,5 @@
 
-export default function getNiveau ({xpPerso}:{xpPerso:number}) {
+export default function getNiveau ({xpPerso}:{xpPerso:number}) {  
   var xpNiv = 50;
   var nivPerso = 0;
   while (xpPerso >= 0) {
@@ -15,8 +15,6 @@ export default function getNiveau ({xpPerso}:{xpPerso:number}) {
     xpPerso = xpPerso - xpNiv;
     nivPerso++;
   }
-  var xpRestant = xpPerso + xpNiv;
-  console.log(xpRestant);
-  
+  var xpRestant = xpPerso + xpNiv;  
   return ({"niveau":nivPerso, "xpRestant":xpRestant, "xpNivSuivant": xpNiv})
 }
