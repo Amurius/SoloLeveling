@@ -43,7 +43,7 @@ export const get1Perso = async ({ persoID }: { persoID: string | null }) => {
     const getPerso = await excuteQuery({
       query: "SELECT personnage.*, cla_nom, cla_niveau, statistiques.*, competences.com_nom, competences.com_dmg, competences.com_cout from informations inner join personnage on info_per_id = per_id inner join classe on info_cla_id = cla_id inner join statistiques on per_sta_id = sta_id INNER JOIN competences on info_com_id = com_id where per_id = ?;",
       values: [id]
-    })
+    })    
     getPerso[0].per_id = crypt.encrypt(getPerso[0].per_id)
     return JSON.stringify(getPerso)
   } else {

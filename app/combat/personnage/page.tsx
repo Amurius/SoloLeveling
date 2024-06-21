@@ -15,10 +15,14 @@ export default function CombatPerso() {
     const [niveaux, setNiveaux] = useState<any>(null)
     const searchParams = useSearchParams();
     const idPerso = searchParams.get("perso");
+    function getNiveau(xp:any) {
+        var niveau = useGetNiveau({ xpPerso: xp })
+        return niveau
+    } 
     useEffect(() => {
         server_get1Perso({ persoID: idPerso })
         if (perso != null){
-            setNiveaux(useGetNiveau({ xpPerso: perso[0].per_xp }))
+            setNiveaux(getNiveau(perso[0].per_xp))
         }
     }, [load])
     const { mutate: server_get1Perso } = useMutation({
@@ -28,7 +32,7 @@ export default function CombatPerso() {
                 alert('Tampered parameter')
             } else {
                 setPerso(JSON.parse(res))
-                setNiveaux(useGetNiveau({ xpPerso: JSON.parse(res)[0].per_xp }))                
+                setNiveaux(getNiveau(JSON.parse(res)[0].per_xp))                
             }
         }
     })
