@@ -16,10 +16,14 @@ export default function Donjon() {
   const [load, setLoad] = useState<number>()
   const [perso, setPerso] = useState<any>(null);
   const [niveaux, setNiveaux] = useState<any>(null)
+  const getNiveau = (xp:any) => {
+    var niveau = useGetNiveau({ xpPerso: xp })
+    return niveau
+} 
   useEffect(() => {
       server_get1Perso({ persoID: idPerso })
       if (perso != null){
-          setNiveaux(useGetNiveau({ xpPerso: perso[0].per_xp }))
+          setNiveaux(getNiveau(perso[0].per_xp ))
       }
   }, [load])
   const { mutate: server_get1Perso } = useMutation({
@@ -29,7 +33,7 @@ export default function Donjon() {
               alert('Tampered parameter')
           } else {
               setPerso(JSON.parse(res))
-              setNiveaux(useGetNiveau({ xpPerso: JSON.parse(res)[0].per_xp }))                
+              setNiveaux(getNiveau(JSON.parse(res)[0].per_xp ))                
           }
       }
   })

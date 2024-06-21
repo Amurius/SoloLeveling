@@ -15,7 +15,7 @@ export default function CombatPerso() {
     const [niveaux, setNiveaux] = useState<any>(null)
     const searchParams = useSearchParams();
     const idPerso = searchParams.get("perso");
-    function getNiveau(xp:any) {
+    const getNiveau = (xp:any) => {
         var niveau = useGetNiveau({ xpPerso: xp })
         return niveau
     } 
