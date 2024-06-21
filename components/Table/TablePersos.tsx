@@ -34,11 +34,66 @@ export default function TablePersos({ columns, data }: {
         );
       case "per_xp":
         var niveau = getNiveau({ "xpPerso": cellValue });
+        var xpRestant = niveau.xpRestant
+        var xpSuivant = niveau.xpNivSuivant
+        var xp = "";
+        var xpPerso ="";
+        if (xpSuivant < 1000){
+        }
+        else if (xpSuivant < (10**6)){
+          xp = Math.trunc(xpSuivant)/100 + "K"
+        }
+        else if (xpSuivant < (10**9)){
+          xp = Math.trunc(xpSuivant/1000)/1000 + "M"
+        }
+        else if (xpSuivant < (10**12)){
+          xp = Math.trunc(xpSuivant/(10**6))/1000 + "B"
+        }
+        else if (xpSuivant < (10**15)){
+          xp = Math.trunc(xpSuivant/(10**9))/1000 + "T"
+        }
+        else if (xpSuivant < (10**18)){
+          xp = Math.trunc(xpSuivant/(10**12))/1000 + "Quad"
+        }
+        else if (xpSuivant < (10**21)){
+          xp = Math.trunc(xpSuivant/(10**15))/1000 + "Quint"
+        }
+        else if (xpSuivant < (10**24)){
+          xp = Math.trunc(xpSuivant/(10**18))/1000 + "SEX"
+        }
+        else{
+          xp = Math.trunc(xpSuivant/(10**21))/1000 + "GOD"
+        }
+        if (xpRestant < 1000){
+        }
+        else if (xpRestant < (10**6)){
+          xpPerso = Math.trunc(xpRestant)/1000 + "K"
+        }
+        else if (xpRestant < (10**9)){
+          xpPerso = Math.trunc(xpRestant/1000)/1000 + "M"
+        }
+        else if (xpRestant < (10**12)){
+          xpPerso = Math.trunc(xpRestant/(10**6))/1000 + "B"
+        }
+        else if (xpRestant < (10**15)){
+          xpPerso = Math.trunc(xpRestant/(10**9))/1000 + "T"
+        }
+        else if (xpRestant < (10**18)){
+          xpPerso = Math.trunc(xpRestant/(10**12))/1000 + "Quad"
+        }
+        else if (xpRestant < (10**21)){
+          xpPerso = Math.trunc(xpRestant/(10**15))/1000 + "Quint"
+        }
+        else if (xpRestant < (10**24)){
+          xpPerso = Math.trunc(xpRestant/(10**18))/1000 + "SEX"
+        } else {
+          xpPerso = Math.trunc(xpRestant/(10**21))/1000 + "GOD"
+        }
         return (
           <>
             <div className="capitalize flex justify-between" >
               <p className="lg:text-2xl text-sm capitalize ">{"Niv. "+niveau.niveau}</p>
-              <p className="lg:text-2xl text-sm capitalize ">{niveau.xpRestant + "/" + niveau.xpNivSuivant}</p>
+              <p className="lg:text-2xl text-sm capitalize ">{xpPerso + " / " + xp}</p>
             </div>
           </>
         );

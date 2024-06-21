@@ -75,7 +75,7 @@ export const updatePointsPerso = async ({ persoID, formulaire, pointsAttr }: { p
     values: [id]
   })
   var nvHp = selectStat[0].sta_hp + formulaire.hp;
-  var nvMana = selectStat[0].sta_mana + formulaire.hp
+  var nvMana = selectStat[0].sta_mana + formulaire.mana
   var nvDmg = selectStat[0].sta_atk_dmg +formulaire.dmg
   var nvAtkSpeed = selectStat[0].sta_atk_speed + formulaire.atkspeed
   var nvChance = selectStat[0].sta_chance + formulaire.chance;  

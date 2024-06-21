@@ -7,6 +7,7 @@ import { createPerso } from "@/app/actions/personnages";
 import { useEffect, useState } from "react";
 import { getClasses } from "@/app/actions/classes";
 import React from "react";
+import { createImage } from "@/app/actions/image";
 
 export default function PersoCreateModal({ user }: { user: any }) {
   const [classes, setClasses] = useState<any>()
@@ -23,7 +24,7 @@ export default function PersoCreateModal({ user }: { user: any }) {
       }
     }
   })
-  useEffect(() => { server_getClasses() }, []);
+  useEffect(() => { server_getClasses(); }, []);
   const { mutate: server_getClasses } = useMutation({
     mutationFn: getClasses,
     onSuccess(res) {
@@ -37,6 +38,11 @@ export default function PersoCreateModal({ user }: { user: any }) {
   const setValue = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNom(e.target.value);
   }
+  
+//  const { mutate:server_createImage} = useMutation({
+//   mutationFn:createImage,
+
+//  })
   return (
     <>
         <Button onPress={onOpen} onClick={() => {
