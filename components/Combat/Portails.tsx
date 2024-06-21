@@ -1,8 +1,8 @@
-import getNiveau from "@/functions/getNiveau";
+import useGetNiveau from "@/functions/getNiveau";
 import { Button, Image, Link } from "@nextui-org/react";
 
 export default function Portails({ perso }: { perso: any }) {
-  var niveaux = getNiveau({ xpPerso: perso.per_xp });
+  var niveaux = useGetNiveau({ xpPerso: perso.per_xp });
   console.log(perso.per_id);
   if (niveaux.niveau < 10) {
     return (

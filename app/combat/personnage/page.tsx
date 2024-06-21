@@ -2,7 +2,7 @@
 import { get1Perso } from "@/app/actions/personnages";
 import ModalPerso from "@/components/Combat/ModalPerso";
 import Portails from "@/components/Combat/Portails";
-import getNiveau from "@/functions/getNiveau";
+import useGetNiveau from "@/functions/getNiveau";
 import { Button } from "@nextui-org/react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
@@ -18,7 +18,7 @@ export default function CombatPerso() {
     useEffect(() => {
         server_get1Perso({ persoID: idPerso })
         if (perso != null){
-            setNiveaux(getNiveau({ xpPerso: perso[0].per_xp }))
+            setNiveaux(useGetNiveau({ xpPerso: perso[0].per_xp }))
         }
     }, [load])
     const { mutate: server_get1Perso } = useMutation({
@@ -28,7 +28,7 @@ export default function CombatPerso() {
                 alert('Tampered parameter')
             } else {
                 setPerso(JSON.parse(res))
-                setNiveaux(getNiveau({ xpPerso: JSON.parse(res)[0].per_xp }))                
+                setNiveaux(useGetNiveau({ xpPerso: JSON.parse(res)[0].per_xp }))                
             }
         }
     })

@@ -1,5 +1,5 @@
 
-export default function getNiveau ({xpPerso}:{xpPerso:number}) { 
+export default function useGetNiveau ({xpPerso}:{xpPerso:number}) { 
   var xpNiv = 50;
   var nivPerso = 0;
   while (xpPerso >= 0) {

@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import NavBar from "@/components/navbar/NavBar";
 import TableMonstres from '@/components/Table/TableMonstres';
 
-export default function monstres() {
+export default function Monstres() {
   const [monstres, setMonstres] = useState<any>();
   const columns = [
     { name: "NOM", uid: "mon_nom" },

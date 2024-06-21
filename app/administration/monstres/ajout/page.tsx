@@ -1,6 +1,6 @@
 
 
-export default function  ajoutMonstre(){
+export default function  AjoutMonstre(){
     return (
         <div>
             

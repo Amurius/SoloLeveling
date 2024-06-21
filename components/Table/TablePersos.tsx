@@ -5,7 +5,7 @@ import { Table, TableHeader, TableColumn, TableBody, TableRow, TableCell, User, 
 import { useAsyncList } from "@react-stately/data";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 import { DeleteIcon } from "./DeleteIcon";
-import getNiveau from "@/functions/getNiveau";
+import useGetNiveau from "@/functions/getNiveau";
 
 const statusColorMap: Record<string, ChipProps["color"]> = {
   active: "success",
@@ -33,7 +33,7 @@ export default function TablePersos({ columns, data }: {
           </div>
         );
       case "per_xp":
-        var niveau = getNiveau({ "xpPerso": cellValue });
+        var niveau = useGetNiveau({ "xpPerso": cellValue });
         var xpRestant = niveau.xpRestant
         var xpSuivant = niveau.xpNivSuivant
         var xp = "";

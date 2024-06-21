@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, Button, useDisclosure, Tooltip, Image } from "@nextui-org/react";
-import getNiveau from "@/functions/getNiveau";
+import useGetNiveau from "@/functions/getNiveau";
 import { NextComponentType } from "next";
 import { useMutation } from "react-query";
 import { updatePointsPerso } from "@/app/actions/personnages";

@@ -7,7 +7,7 @@ import NavBar from "@/components/navbar/NavBar";
 import AdminNav from '@/components/Admin/AdminNav';
 import TableMonstresAdmin from '@/components/Table/TableMonstresAdmin';
 
-export default function monstres() {
+export default function Monstres() {
   const [monstres, setMonstres] = useState<any>();
   const [user, setUser] = useState<any>(null);
   const columns = [
