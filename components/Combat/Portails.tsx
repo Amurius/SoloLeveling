@@ -1,4 +1,4 @@
-import useGetNiveau from "@/functions/getNiveau";
+import {useGetNiveau} from "@/functions/getNiveau";
 import { Button, Image, Link } from "@nextui-org/react";
 
 export default function Portails({ perso }: { perso: any }) {

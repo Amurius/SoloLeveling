@@ -1,7 +1,7 @@
 "use client"
 import { get1Perso } from "@/app/actions/personnages";
 import ModalPerso from "@/components/Combat/ModalPerso";
-import useGetNiveau from "@/functions/getNiveau";
+import {useGetNiveau} from "@/functions/getNiveau";
 import { Button, Image } from "@nextui-org/react";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
