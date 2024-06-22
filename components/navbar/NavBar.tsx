@@ -6,13 +6,10 @@ import { Logout, getCookies } from '@/app/actions/action';
 import { useEffect, useState } from 'react';
 import { error } from 'console';
 import { randomInt } from 'crypto';
-import { usePathname, useSearchParams, useRouter } from 'next/navigation';
+import { usePathname } from 'next/navigation';
 
 export default function NavBar() {
-  const searchParams = useSearchParams();
-  const params = new URLSearchParams(searchParams.toString());
   const pathname = usePathname();
-  const router = useRouter()
   const [user, setUser] = useState<any>(null);
   useEffect(() => {
     server_getCookies()
@@ -21,18 +18,10 @@ export default function NavBar() {
     mutationFn: getCookies,
     onSuccess: (res) => {
       if (res.error) {
-        params.set('in', 'no')
-        var string = params.toString();
-        router.push(pathname + '?' + string);
-      } else if (res.nocookie) {
-        var lien = pathname.substring(pathname.indexOf('?'))
-        router.push(lien)
       }
       else {
         setUser(res);
-        params.set('in', 'yes')
-        var string = params.toString();
-        router.push(pathname + '?' + string);
+
       }
     },
   })

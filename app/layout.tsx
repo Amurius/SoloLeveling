@@ -1,10 +1,8 @@
 "use client"
-import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import localFont from 'next/font/local'
 import "./globals.css";
 import { QueryClient, QueryClientProvider, useMutation, useQueryClient } from 'react-query';
-import { useSearchParams } from "next/navigation";
 const queryClient = new QueryClient();
 
 
@@ -47,11 +45,6 @@ export default function RootLayout({
   children: React.ReactNode;
 }>
 ) {
-  const searchParams = useSearchParams();
-  const logged = searchParams.get("in");
-  if (logged === "no") {
-    window.location.reload();
-  }  
   return (
     <html lang="en">
       <body className={inter.className + ` h-screen bg-no-repeat ${Titres.variable} ${mangaShaded.variable} ${mangaBold.variable} ${mangaItalic.variable} ${gothic.variable}`}>

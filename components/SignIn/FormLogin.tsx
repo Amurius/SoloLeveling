@@ -28,7 +28,7 @@ export default function FormLogin() {
       if (res?.error == 'password'){
         alert("Mot de passe incorrect")
       } else if (res?.success){
-        window.location.replace("http://localhost:3000/accueil")
+        window.location.replace("/accueil")
       }
     },
   })
