@@ -10,12 +10,6 @@ import { Suspense, useEffect, useState } from "react";
 import { useMutation } from "react-query";
 
 function SearchBarFallback() {
-    return <>
-    <h1>CHARGEMENT</h1>
-    </>
-}
-
-export default function CombatPerso() {
     const [load, setLoad] = useState<number>()
     const [perso, setPerso] = useState<any>(null);
     const [niveaux, setNiveaux] = useState<any>(null)
@@ -43,22 +37,31 @@ export default function CombatPerso() {
         }
     })
     if (perso != null && niveaux != null) {
-        return (
-            <>
-                <Suspense fallback={<SearchBarFallback />}>
-                    <div className=" absolute w-screen h-screen">
-                        <div className=" flex h-screen items-end">
-                            <ModalPerso data={perso[0]} setLoad={setLoad} niveaux={niveaux} />
-                        </div>
-                        <Button color="danger" variant="flat" className=" text-4xl py-8 absolute left-0 top-0"><Link href='/accueil'>EXIT</Link></Button>
-                    </div>
-                    <div className=" h-full w-full flex items-center justify-center">
-                        <div className=" flex gap-x-6">
-                            <Portails perso={perso[0]} />
-                        </div>
-                    </div>
-                </Suspense>
-            </>
-        );
+
+        return <>
+            <div className=" absolute w-screen h-screen">
+                <div className=" flex h-screen items-end">
+                    <ModalPerso data={perso[0]} setLoad={setLoad} niveaux={niveaux} />
+                </div>
+                <Button color="danger" variant="flat" className=" text-4xl py-8 absolute left-0 top-0"><Link href='/accueil'>EXIT</Link></Button>
+            </div>
+            <div className=" h-full w-full flex items-center justify-center">
+                <div className=" flex gap-x-6">
+                    <Portails perso={perso[0]} />
+                </div>
+            </div>
+        </>
     }
+}
+
+export default function CombatPerso() {
+    return (
+        <>
+            <Suspense fallback={<h1>CHARGEMENT</h1>
+            }>
+                <SearchBarFallback />
+
+            </Suspense>
+        </>
+    );
 }

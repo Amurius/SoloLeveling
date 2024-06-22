@@ -9,12 +9,6 @@ import { Suspense, useEffect, useState } from "react";
 import { useMutation } from "react-query";
 
 function DonjonFallback() {
-  return <>
-    <h1>CHARGEMENT</h1>
-  </>
-}
-
-export default function Donjon() {
   const searchParams = useSearchParams();
   const idPerso = searchParams.get("perso");
   const gateNum = searchParams.get("gate");
@@ -43,22 +37,30 @@ export default function Donjon() {
     }
   })
   if (perso != null && niveaux != null) {
-    return (
-      <>
-        <Suspense fallback={<DonjonFallback />}>
-          <div className=" absolute w-screen h-screen">
-            <div className=" flex h-screen items-end">
-              <ModalPerso data={perso[0]} setLoad={setLoad} niveaux={niveaux} />
-            </div>
-            <Button color="danger" variant="flat" className=" text-4xl py-8 absolute left-0 top-0"><Link href='/accueil'>EXIT</Link></Button>
-          </div>
-          <div className="flex items-center justify-center">
-            <button>
-              <Image src="/combat/porteDonjon.png" isZoomed width={150} height={150} radius="none" className=" top-0" />
-            </button>
-          </div>
-        </Suspense>
-      </>
-    );
+    return <>
+      <div className=" absolute w-screen h-screen">
+        <div className=" flex h-screen items-end">
+          <ModalPerso data={perso[0]} setLoad={setLoad} niveaux={niveaux} />
+        </div>
+        <Button color="danger" variant="flat" className=" text-4xl py-8 absolute left-0 top-0"><Link href='/accueil'>EXIT</Link></Button>
+      </div>
+      <div className="flex items-center justify-center">
+        <button>
+          <Image src="/combat/porteDonjon.png" isZoomed width={150} height={150} radius="none" className=" top-0" />
+        </button>
+      </div>
+    </>
   }
+}
+
+export default function Donjon() {
+
+  return (
+    <>
+      <Suspense fallback={<h1>CHARGEMENT</h1>
+      }>
+        <DonjonFallback />
+      </Suspense>
+    </>
+  );
 }
