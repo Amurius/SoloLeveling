@@ -9,7 +9,7 @@ import { useSearchParams } from "next/navigation";
 import { Suspense, useEffect, useState } from "react";
 import { useMutation } from "react-query";
 
-function SearchBarFallback() {
+function CombatFallback() {
     const [load, setLoad] = useState<number>()
     const [perso, setPerso] = useState<any>(null);
     const [niveaux, setNiveaux] = useState<any>(null)
@@ -59,7 +59,7 @@ export default function CombatPerso() {
         <>
             <Suspense fallback={<h1>CHARGEMENT</h1>
             }>
-                <SearchBarFallback />
+                <CombatFallback />
 
             </Suspense>
         </>

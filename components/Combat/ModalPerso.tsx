@@ -76,8 +76,8 @@ export default function ModalPerso({ data, setLoad, niveaux }: { data: any, setL
                           <div className=" flex">
                             <h4>{data.sta_hp} HP +</h4>
                             {formulaire ? <h4>{formulaire.hp}</h4> : <></>}
-                            <Button size="sm" color="success" variant="flat" className=" text-3xl ms-6" name="hp" value={10} onClick={(e) => removePoint(e)}>-</Button>
-                            <Button size="sm" color="success" variant="flat" className=" text-3xl ms-1" name="hp" value={10} onClick={(e) => addPoint(e)}>+</Button>
+                            <Button size="sm" color="success" variant="flat" className=" text-3xl ms-6" name="hp" value={50} onClick={(e) => removePoint(e)}>-</Button>
+                            <Button size="sm" color="success" variant="flat" className=" text-3xl ms-1" name="hp" value={50} onClick={(e) => addPoint(e)}>+</Button>
                           </div>
                         </div>
                         <div>
@@ -88,8 +88,8 @@ export default function ModalPerso({ data, setLoad, niveaux }: { data: any, setL
                                 <div className=" flex">
                                   <h4>{data.sta_mana} Mana + </h4>
                                   {formulaire ? <h4>{formulaire.mana}</h4> : <></>}
-                                  <Button size="sm" color="primary" variant="flat" className=" text-3xl ms-6" name="mana" value={5} onClick={(e) => removePoint(e)}>-</Button>
-                                  <Button size="sm" color="primary" variant="flat" className=" text-3xl ms-1" name="mana" value={5} onClick={(e) => addPoint(e)}>+</Button>
+                                  <Button size="sm" color="primary" variant="flat" className=" text-3xl ms-6" name="mana" value={10} onClick={(e) => removePoint(e)}>-</Button>
+                                  <Button size="sm" color="primary" variant="flat" className=" text-3xl ms-1" name="mana" value={10} onClick={(e) => addPoint(e)}>+</Button>
                                 </div>
                               </>
                               :
@@ -98,8 +98,8 @@ export default function ModalPerso({ data, setLoad, niveaux }: { data: any, setL
                                 <div className=" flex">
                                   <h4>{data.sta_mana} Mana + </h4>
                                   {formulaire ? <h4>{formulaire.mana}</h4> : <></>}
-                                  <Button size="sm" color="primary" variant="flat" className=" text-3xl ms-6" name="mana" value={5} onClick={(e) => removePoint(e)}>-</Button>
-                                  <Button size="sm" color="primary" variant="flat" className=" text-3xl ms-1" name="mana" value={5} onClick={(e) => addPoint(e)}>+</Button>
+                                  <Button size="sm" color="primary" variant="flat" className=" text-3xl ms-6" name="mana" value={10} onClick={(e) => removePoint(e)}>-</Button>
+                                  <Button size="sm" color="primary" variant="flat" className=" text-3xl ms-1" name="mana" value={10} onClick={(e) => addPoint(e)}>+</Button>
                                 </div>
                               </>
                           }
@@ -109,8 +109,8 @@ export default function ModalPerso({ data, setLoad, niveaux }: { data: any, setL
                           <div className=" flex">
                             <h4>{data.sta_atk_dmg} Dégats +</h4>
                             {formulaire ? <h4>{formulaire.dmg}</h4> : <></>}
-                            <Button size="sm" color="danger" variant="flat" className=" text-3xl ms-6" name="dmg" value={2} onClick={(e) => removePoint(e)}>-</Button>
-                            <Button size="sm" color="danger" variant="flat" className=" text-3xl ms-1" name="dmg" value={2} onClick={(e) => addPoint(e)}>+</Button>
+                            <Button size="sm" color="danger" variant="flat" className=" text-3xl ms-6" name="dmg" value={10} onClick={(e) => removePoint(e)}>-</Button>
+                            <Button size="sm" color="danger" variant="flat" className=" text-3xl ms-1" name="dmg" value={10} onClick={(e) => addPoint(e)}>+</Button>
                           </div>
                         </div>
                         <div className="flex">

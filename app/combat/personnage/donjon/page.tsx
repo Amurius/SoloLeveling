@@ -1,6 +1,7 @@
 "use client"
 import { get1Perso } from "@/app/actions/personnages";
 import ModalPerso from "@/components/Combat/ModalPerso";
+import Salle from "@/components/Combat/Salle";
 import { useGetNiveau } from "@/functions/getNiveau";
 import { Button, Image } from "@nextui-org/react";
 import Link from "next/link";
@@ -45,9 +46,8 @@ function DonjonFallback() {
         <Button color="danger" variant="flat" className=" text-4xl py-8 absolute left-0 top-0"><Link href='/accueil'>EXIT</Link></Button>
       </div>
       <div className="flex items-center justify-center">
-        <button>
-          <Image src="/combat/porteDonjon.png" isZoomed width={150} height={150} radius="none" className=" top-0" />
-        </button>
+        {/* Salle avec les monstres et la porte pour changer de salle */}
+        <Salle gateId={gateNum} persoID={idPerso}/>
       </div>
     </>
   }
