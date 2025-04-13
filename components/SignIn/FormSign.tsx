@@ -62,7 +62,7 @@ export default function FormSign() {
       <p className=' text-center text-purple-800 sm:m-16 lg:text-7xl md:text-5xl text-4xl m-6 my-24'>Inscrivez vous !</p>
       <form className=' 2xl:w-6/12 xl:w-7/12 md:min-w-96 sm:min-w-60 '>
         <div className=' xl:m-8 md:p-6 md:border-2 rounded-lg  border-zinc-900 sm:my-2'>
-          <div className=' my-4 flex gap-2'>
+          <div className=' mb-2 mt-4 flex gap-2'>
             <Input
               isRequired
               size='lg'

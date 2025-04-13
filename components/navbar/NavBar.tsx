@@ -17,11 +17,11 @@ export default function NavBar() {
   const { mutate: server_getCookies } = useMutation({
     mutationFn: getCookies,
     onSuccess: (res) => {
-      if (res.error) {
+      if (res.nocookie) {
+        console.log("not connected");
       }
       else {
         setUser(res);
-
       }
     },
   })

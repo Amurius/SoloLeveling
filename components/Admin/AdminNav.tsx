@@ -26,28 +26,28 @@ export default function AdminNav() {
       </DropdownTrigger>
       <DropdownMenu color={color} variant={variant}>
         <DropdownSection aria-label="Users" showDivider>
-          <DropdownItem textValue="utilisateurs">
+          <DropdownItem key="utilisateurs" textValue="utilisateurs">
             <Link href="/administration/users" className=' lg:text-2xl md:text-xl text-lg text-purple-200 w-full'>
               Utilisateurs
             </Link>
           </DropdownItem>
         </DropdownSection>
         <DropdownSection aria-label="Monstres" showDivider>
-          <DropdownItem textValue="addMonstres">
+          <DropdownItem key="monstres" textValue="addMonstres">
             <Link href="/administration/monstres" className=' lg:text-2xl md:text-xl text-lg text-purple-200 w-full'>
               Ajouter et modifier des Monstres
             </Link>
           </DropdownItem>
         </DropdownSection>
         <DropdownSection aria-label="Classes" showDivider>
-          <DropdownItem textValue="addClasses">
+          <DropdownItem key="classes" textValue="addClasses">
             <Link href="/administration/classes" className=' lg:text-2xl md:text-xl text-lg text-purple-200 w-full'>
               Ajouter et modifier des classes
             </Link>
           </DropdownItem>
         </DropdownSection>
         <DropdownSection aria-label="Compétences" >
-          <DropdownItem textValue="addCompetences">
+          <DropdownItem key="competences" textValue="addCompetences">
             <Link href="/administration/competences" className=' lg:text-2xl md:text-xl text-lg text-purple-200 w-full'>
               Ajouter et modifier des competences
             </Link>

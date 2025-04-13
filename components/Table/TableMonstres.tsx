@@ -15,7 +15,7 @@ const statusColorMap: Record<string, ChipProps["color"]> = {
 export default function TableMonstres({ columns, data }: {
   columns: any, data: any
 }) {  
-  var ligne = 0;
+  var ligne = -1;
   type Monstre = typeof data[0];
   const renderCell = React.useCallback((user: Monstre, columnKey: React.Key) => {
     const cellValue = user[columnKey as keyof Monstre];
@@ -124,7 +124,7 @@ export default function TableMonstres({ columns, data }: {
         case "mon_id":              
         ligne++;
         if(ligne > data.length){
-          ligne = 0;
+          ligne = -1;
         }        
         return (
           <div className="relative flex items-center gap-2">

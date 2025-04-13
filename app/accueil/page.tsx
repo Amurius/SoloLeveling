@@ -10,15 +10,21 @@ import { getCookies } from '../actions/action';
 
 export default function Accueil() {
   const [user, setUser] = useState<any>(null);
-  useEffect(() => {
-    server_getCookies();
-  }, [])
+ 
   const { mutate: server_getCookies } = useMutation({
     mutationFn: getCookies,
     onSuccess: (res) => {
-      setUser(res);
+      if (res.nocookie) {
+        console.log("not connected");
+      } else {
+        setUser(res);
+      }
     },
   })
+  useEffect(() => {
+    server_getCookies();
+    
+  }, [])
   if (user) {
     return (
       <>
