@@ -21,6 +21,7 @@ export default function TablePersos({ columns, data }: {
     return niveau
   }
   type Personnage = typeof data[0];
+  console.log(data[0]);
   const renderCell = React.useCallback((user: Personnage, columnKey: React.Key) => {
     const cellValue = user[columnKey as keyof Personnage];
     switch (columnKey) {

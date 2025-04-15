@@ -49,6 +49,7 @@ export default function FormLogin() {
             color="secondary"
             errorMessage="Please enter a valid email"
             onChange={setDonnees}
+            className='mb-2'
           />
           <Input
             isRequired

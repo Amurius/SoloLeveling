@@ -19,13 +19,19 @@ export default function User() {
     mutationFn: getCookies,
     onSuccess: (res) => {
       setUser(res);
+      console.log(res);
       server_getPersosUser({ "userID": res.id });
     },
   })
   const { mutate: server_getPersosUser } = useMutation({
     mutationFn: getPersosUser,
     onSuccess: (res) => {
-      setPersonnages(JSON.parse(res))
+      // Array<Personnage> lstPersos = new Array<Personnage>();
+      // JSON.parse(res).perso.forEach(perso => {
+        
+      // });
+      setPersonnages(JSON.parse(res).perso)
+
     },
   })
   const columns = [

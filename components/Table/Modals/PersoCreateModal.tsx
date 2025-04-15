@@ -21,6 +21,7 @@ export default function PersoCreateModal({ user }: { user: any }) {
         alert("Veuillez renseigner tous les champs")
       } else {
         alert("Création réussie !")
+        onOpenChange();
       }
     }
   })
@@ -59,7 +60,7 @@ export default function PersoCreateModal({ user }: { user: any }) {
                   <>
                     <div className=" flex justify-between gap-x-6">
                       <div className=" flex flex-col text-center">
-                        <Input label="Nommez votre personnage" size="lg" isRequired onChange={(e) => setValue(e)} />
+                        <Input label="Nommez votre personnage" size="lg" className="font-gothic min-w-52" isRequired onChange={(e) => setValue(e)} />
                         {/* <Image className=" max-h-128" src={"/imagesMonstres" + data.mon_img} />
                         <h4>{data.mon_description}</h4> */}
                       </div>

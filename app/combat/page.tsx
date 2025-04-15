@@ -23,7 +23,7 @@ export default function Combat() {
   const { mutate: server_getPersosUser } = useMutation({
     mutationFn: getPersosUser,
     onSuccess: (res) => {
-      setPersonnages(JSON.parse(res))
+      setPersonnages(JSON.parse(res).perso)
     },
   })
   
